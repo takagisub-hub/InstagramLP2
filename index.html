@@ -3849,5 +3849,59 @@ body.modal-open{overflow:hidden;}
 })();
 </script>
 
+
+<style id="sp-fix">
+@media(max-width:760px){
+  /* 1. ヒーロー：ボタンを横並びに・画像を上に */
+  .hero .wrap.hero-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    padding-top:80px !important;
+    padding-bottom:24px !important;
+    gap:20px !important;
+  }
+  .hero-left{ order:1 !important; padding-left:0 !important; }
+  .hero .hero-image{ order:0 !important; }
+  .hero .hero-image img{ max-height:50vw !important; object-fit:contain !important; border-radius:16px !important; }
+  .hero-left .btns{
+    display:flex !important;
+    flex-direction:row !important;
+    flex-wrap:wrap !important;
+    gap:10px !important;
+  }
+  .hero-left .btns .btn{ flex:1 1 auto !important; min-width:140px !important; font-size:13px !important; min-height:46px !important; }
+  .hero-numbers-cards{ grid-template-columns:1fr !important; }
+
+  /* 2. 支援内容：1列に */
+  #partner .support-pillar-v2{
+    grid-template-columns:48px 1fr !important;
+  }
+
+  /* 3. WHY KIRINZ：01バッジとタイトルの重なり解消 */
+  #strengths .strength-card-clean{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:10px !important;
+    padding:20px !important;
+  }
+  #strengths .strength-num{
+    position:static !important;
+    margin:0 0 4px !important;
+    width:38px !important;
+    height:38px !important;
+  }
+  #strengths .strength-card-clean h3{
+    margin:0 !important;
+    font-size:20px !important;
+    grid-area:unset !important;
+  }
+  #strengths .strength-card-clean p{
+    margin:0 !important;
+    grid-area:unset !important;
+    font-size:16px !important;
+  }
+}
+</style>
+
 </body>
 </html>
