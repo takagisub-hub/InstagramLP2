@@ -972,7 +972,7 @@ section{
 
 /* "kirān" glint on 今日で卒業。 */
 .hero h1 .hl.blue{ position:relative; }
-.hero h1 .blue .gloss{
+.hero h1 .blue .gloss{ display:none !important; } .hero h1 .blue .gloss_disabled{
   position:absolute; top:-8%; bottom:-8%; left:-10%; width:12%;
   background:linear-gradient(105deg, transparent, rgba(255,255,255,.95), transparent);
   filter:blur(1px); transform:skewX(-16deg);
@@ -985,7 +985,7 @@ section{
   90%{ opacity:1; }
   100%{ left:100%; opacity:0; }
 }
-.hero h1 .blue .spark{
+.hero h1 .blue .spark{ display:none !important; } .hero h1 .blue .spark_disabled{
   position:absolute; left:100%; top:.04em; margin-left:.1em;
   width:.52em; height:.52em; opacity:0; pointer-events:none; z-index:3;
 }
@@ -1005,7 +1005,7 @@ section{
   100%{ opacity:0; transform:scale(.2) rotate(120deg); }
 }
 @media(prefers-reduced-motion:reduce){
-  .hero h1 .blue .gloss, .hero h1 .blue .spark{ display:none !important; }
+  .hero h1 .blue .gloss, .hero h1 .blue .spark{ display:none !important; } .hero h1 .blue .spark_disabled{ display:none !important; }
 }
 
 /* icons subtle pulse */
@@ -3391,24 +3391,14 @@ body.modal-open{overflow:hidden;}
   /* add glint sweep to 今日で卒業。 (no spark) */
   var blueEl = h1.querySelector('.blue');
   if(blueEl){
-    var gloss = document.createElement('span'); gloss.className = 'gloss'; blueEl.appendChild(gloss);
+    
   }
 
   requestAnimationFrame(function(){
     requestAnimationFrame(function(){ h1.classList.add('chars-in'); });
   });
 
-  /* fire the "kirān" glint after all characters have appeared, then repeat */
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(blueEl && !reduce){
-    var total = idx * 0.06 + 0.7;
-    var fire = function(){
-      blueEl.classList.remove('kirari');
-      void blueEl.offsetWidth;
-      blueEl.classList.add('kirari');
-    };
-    setTimeout(function(){ fire(); setInterval(fire, 5000); }, total * 1000);
-  }
+  
 })();
 
 (function(){
