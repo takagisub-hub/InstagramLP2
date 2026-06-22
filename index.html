@@ -978,7 +978,7 @@ section{
   filter:blur(1px); transform:skewX(-16deg);
   opacity:0; pointer-events:none; mix-blend-mode:screen; z-index:2;
 }
-.hero h1 .blue.kirari .gloss{ animation:gloss 1.0s ease; }
+.hero h1 .blue.kirari .gloss{ animation:none; opacity:0; }
 @keyframes gloss{
   0%{ left:-10%; opacity:0; }
   10%{ opacity:1; }
@@ -997,7 +997,7 @@ section{
 }
 .hero h1 .blue .spark::before{ width:14%; height:100%; }
 .hero h1 .blue .spark::after{ width:100%; height:14%; }
-.hero h1 .blue.kirari .spark{ animation:sparkle 1.15s ease .42s; }
+.hero h1 .blue.kirari .spark{ animation:none; opacity:0; }
 @keyframes sparkle{
   0%{ opacity:0; transform:scale(.2) rotate(0deg); }
   35%{ opacity:1; transform:scale(1.15) rotate(40deg); }
