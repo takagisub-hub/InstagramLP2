@@ -2948,9 +2948,9 @@ body.modal-open{overflow:hidden;}
   </header>
 
   <main>
-    <section class="hero hero-full">
-      <div class="wrap">
-        <div class="hero-text-block">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-left">
           <div class="kicker">Instagram Operation Partner</div>
           <div class="price-line">AI <b>×</b> 企画提案で</div>
           <h1><span class="hl">Instagramを、</span><span class="hl">成果が積み上がる</span><span class="hl blue">運用装置に。</span></h1>
@@ -2960,6 +2960,11 @@ body.modal-open{overflow:hidden;}
             <a class="btn secondary" href="#strengths">KIRINZの強みを見る</a>
           </div>
         </div>
+        <div class="hero-image">
+          <img src="https://raw.githubusercontent.com/takagisub-hub/InstagramLP2/main/assets/img_00.png" alt="Instagramアカウントの成長分析イメージ">
+        </div>
+      </div>
+      <div class="wrap hero-numbers-wrap">
         <div class="hero-numbers-inline">
           <div class="numbers-cards">
             <div class="numbers-card">
@@ -2986,9 +2991,6 @@ body.modal-open{overflow:hidden;}
             不特定多数に<span>"ぼちぼち"</span>する必要はありません。
           </div>
         </div>
-      </div>
-      <div class="hero-image-full">
-        <img src="https://raw.githubusercontent.com/takagisub-hub/InstagramLP2/main/assets/img_00.png" alt="Instagramアカウントの成長分析イメージ">
       </div>
     </section>
 
@@ -3730,37 +3732,43 @@ body.modal-open{overflow:hidden;}
 
 
 
+
+
 <style id="hero-full-style">
-.hero-full{
-  min-height:auto !important;
+/* 2カラム：左テキスト・右画像 */
+.hero{
+  overflow:hidden !important;
   padding:72px 0 0 !important;
-  overflow:visible !important;
-  padding-bottom:0 !important;
+  min-height:auto !important;
 }
-.hero-full .wrap{
-  display:flex;
-  flex-direction:column;
-  gap:0;
+.hero .hero-grid{
+  display:grid !important;
+  grid-template-columns:.92fr 1.08fr !important;
+  gap:38px !important;
+  align-items:center !important;
+  padding-bottom:48px !important;
 }
-/* テキストブロック */
-.hero-text-block{
-  max-width:700px;
-  padding-bottom:40px;
+.hero-left{ z-index:2; }
+.hero .hero-image{
+  position:relative;
+  animation:cardFloat 6s ease-in-out infinite;
 }
-/* numbersインライン */
-.hero-numbers-inline{
+.hero .hero-image img{
   width:100%;
-  padding:28px 0;
+  border-radius:24px;
+  box-shadow:0 28px 68px rgba(0,0,0,.40);
+}
+/* numbersバナー：hero下部に全幅 */
+.hero-numbers-wrap{
   border-top:1px solid rgba(255,255,255,.1);
-  border-bottom:1px solid rgba(255,255,255,.1);
-  margin-bottom:0;
+  padding:24px 0 32px;
 }
 .hero-numbers-inline .numbers-cards{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:14px;
   margin-bottom:14px;
-  max-width:760px;
+  max-width:680px;
 }
 .hero-numbers-inline .numbers-card{
   display:flex;
@@ -3769,73 +3777,52 @@ body.modal-open{overflow:hidden;}
   background:rgba(255,255,255,.07);
   border:1px solid rgba(36,183,255,.22);
   border-radius:16px;
-  padding:18px 22px;
+  padding:16px 20px;
 }
 .hero-numbers-inline .numbers-icon{
-  flex:0 0 52px;
-  width:52px;
-  height:52px;
-  border-radius:14px;
+  flex:0 0 48px;
+  width:48px;height:48px;
+  border-radius:13px;
   background:linear-gradient(135deg,#1c86ff,#24b7ff);
-  display:grid;
-  place-items:center;
+  display:grid;place-items:center;
   box-shadow:0 8px 20px rgba(36,183,255,.3);
 }
 .hero-numbers-inline .numbers-icon svg{
-  width:28px;height:28px;
+  width:26px;height:26px;
   stroke:#fff;stroke-width:3;
   stroke-linecap:round;stroke-linejoin:round;fill:none;
 }
 .hero-numbers-inline .numbers-main{
-  font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:4px;
+  font-size:16px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:3px;
 }
 .hero-numbers-inline .numbers-big{
-  font-size:36px;font-weight:900;color:#24b7ff;
+  font-size:32px;font-weight:900;color:#24b7ff;
   font-family:var(--en);line-height:1;margin:0 2px;
 }
 .hero-numbers-inline .numbers-body p{
-  font-size:13px;color:rgba(255,255,255,.62);line-height:1.6;margin:0;
+  font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin:0;
 }
 .hero-numbers-inline .numbers-note{
   display:flex;align-items:center;gap:12px;
   background:rgba(255,255,255,.06);
   border:1px solid rgba(36,183,255,.2);
   border-radius:12px;
-  padding:13px 20px;
-  font-size:15px;font-weight:900;
+  padding:12px 18px;
+  font-size:14px;font-weight:900;
   color:rgba(255,255,255,.9);
-  max-width:760px;
+  max-width:680px;
 }
 .hero-numbers-inline .numbers-note svg{
-  flex:0 0 22px;width:22px;height:22px;
+  flex:0 0 20px;width:20px;height:20px;
   stroke:#24b7ff;stroke-width:2.5;stroke-linecap:round;fill:none;
 }
 .hero-numbers-inline .numbers-note span{color:#24b7ff;}
-/* 画像エリア */
-.hero-image-full{
-  width:100%;
-  margin-top:0;
-  line-height:0;
-  font-size:0;
+@media(max-width:980px){
+  .hero .hero-grid{grid-template-columns:1fr !important;}
 }
-.hero-image-full img{
-  width:100%;
-  max-width:100%;
-  display:block;
-  margin:0;
-  padding:0;
-  border-radius:0;
-  vertical-align:bottom;
-  line-height:0;
-}
-@media(max-width:760px){
-  .hero-text-block{padding-bottom:28px;}
-  .hero-numbers-inline .numbers-cards{grid-template-columns:1fr;gap:10px;}
-  .hero-numbers-inline .numbers-card{padding:14px 16px;}
-  .hero-numbers-inline .numbers-big{font-size:28px;}
-  .hero-numbers-inline .numbers-note{font-size:13px;padding:11px 14px;}
+@media(max-width:640px){
+  .hero-numbers-inline .numbers-cards{grid-template-columns:1fr;}
 }
 </style>
-
 </body>
 </html>
