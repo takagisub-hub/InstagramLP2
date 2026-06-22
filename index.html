@@ -2948,9 +2948,9 @@ body.modal-open{overflow:hidden;}
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
+    <section class="hero hero-full">
+      <div class="wrap">
+        <div class="hero-text-block">
           <div class="kicker">Instagram Operation Partner</div>
           <div class="price-line">AI <b>×</b> 企画提案で</div>
           <h1><span class="hl">Instagramを、</span><span class="hl">成果が積み上がる</span><span class="hl blue">運用装置に。</span></h1>
@@ -2960,24 +2960,11 @@ body.modal-open{overflow:hidden;}
             <a class="btn secondary" href="#strengths">KIRINZの強みを見る</a>
           </div>
         </div>
-        <div class="hero-image">
-          <img src="https://raw.githubusercontent.com/takagisub-hub/InstagramLP2/main/assets/img_00.png" alt="Instagramアカウントの成長分析イメージ">
-          <div class="hero-badge">+150<small>Monthly Growth</small></div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="section" id="numbers" style="padding:32px 0;background:linear-gradient(180deg,#06172f 0%,#071d3e 100%);">
-      <div class="wrap">
-        <div class="numbers-band">
+        <div class="hero-numbers-inline">
           <div class="numbers-cards">
             <div class="numbers-card">
               <div class="numbers-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <circle cx="17" cy="16" r="6"/><circle cx="31" cy="16" r="6"/>
-                  <path d="M4 38c2-9 8-14 13-14h14c5 0 11 5 13 14"/>
-                </svg>
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="17" cy="16" r="6"/><circle cx="31" cy="16" r="6"/><path d="M4 38c2-9 8-14 13-14h14c5 0 11 5 13 14"/></svg>
               </div>
               <div class="numbers-body">
                 <div class="numbers-main">毎月最低<span class="numbers-big">150</span>人増加</div>
@@ -2986,10 +2973,7 @@ body.modal-open{overflow:hidden;}
             </div>
             <div class="numbers-card">
               <div class="numbers-icon">
-                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="9"/>
-                  <path d="M24 6v4M24 38v4M6 24h4M38 24h4"/>
-                </svg>
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="9"/><path d="M24 6v4M24 38v4M6 24h4M38 24h4"/></svg>
               </div>
               <div class="numbers-body">
                 <div class="numbers-main">質の高いフォロワー</div>
@@ -3002,8 +2986,14 @@ body.modal-open{overflow:hidden;}
             不特定多数に<span>"ぼちぼち"</span>する必要はありません。
           </div>
         </div>
+        <div class="hero-image-full">
+          <img src="https://raw.githubusercontent.com/takagisub-hub/InstagramLP2/main/assets/img_00.png" alt="Instagramアカウントの成長分析イメージ">
+        </div>
       </div>
     </section>
+
+
+
 
     <style id="numbers-style">
     #numbers .numbers-band{
@@ -3759,6 +3749,108 @@ body.modal-open{overflow:hidden;}
 }
 #strengths .strength-card-clean:hover .strength-img img{
   transform:scale(1.04);
+}
+</style>
+
+
+<style id="hero-full-style">
+.hero-full{
+  min-height:auto !important;
+  padding:72px 0 0 !important;
+}
+.hero-full .wrap{
+  display:flex;
+  flex-direction:column;
+  gap:0;
+}
+/* テキストブロック */
+.hero-text-block{
+  max-width:700px;
+  padding-bottom:40px;
+}
+/* numbersインライン */
+.hero-numbers-inline{
+  width:100%;
+  padding:28px 0;
+  border-top:1px solid rgba(255,255,255,.1);
+  border-bottom:1px solid rgba(255,255,255,.1);
+  margin-bottom:0;
+}
+.hero-numbers-inline .numbers-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-bottom:14px;
+  max-width:760px;
+}
+.hero-numbers-inline .numbers-card{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(36,183,255,.22);
+  border-radius:16px;
+  padding:18px 22px;
+}
+.hero-numbers-inline .numbers-icon{
+  flex:0 0 52px;
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#1c86ff,#24b7ff);
+  display:grid;
+  place-items:center;
+  box-shadow:0 8px 20px rgba(36,183,255,.3);
+}
+.hero-numbers-inline .numbers-icon svg{
+  width:28px;height:28px;
+  stroke:#fff;stroke-width:3;
+  stroke-linecap:round;stroke-linejoin:round;fill:none;
+}
+.hero-numbers-inline .numbers-main{
+  font-size:17px;font-weight:900;color:#fff;line-height:1.3;margin-bottom:4px;
+}
+.hero-numbers-inline .numbers-big{
+  font-size:36px;font-weight:900;color:#24b7ff;
+  font-family:var(--en);line-height:1;margin:0 2px;
+}
+.hero-numbers-inline .numbers-body p{
+  font-size:13px;color:rgba(255,255,255,.62);line-height:1.6;margin:0;
+}
+.hero-numbers-inline .numbers-note{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(36,183,255,.2);
+  border-radius:12px;
+  padding:13px 20px;
+  font-size:15px;font-weight:900;
+  color:rgba(255,255,255,.9);
+  max-width:760px;
+}
+.hero-numbers-inline .numbers-note svg{
+  flex:0 0 22px;width:22px;height:22px;
+  stroke:#24b7ff;stroke-width:2.5;stroke-linecap:round;fill:none;
+}
+.hero-numbers-inline .numbers-note span{color:#24b7ff;}
+/* 画像エリア */
+.hero-image-full{
+  width:100%;
+  margin-top:0;
+}
+.hero-image-full img{
+  width:100%;
+  max-width:860px;
+  display:block;
+  margin:0 auto;
+  border-radius:0;
+}
+@media(max-width:760px){
+  .hero-text-block{padding-bottom:28px;}
+  .hero-numbers-inline .numbers-cards{grid-template-columns:1fr;gap:10px;}
+  .hero-numbers-inline .numbers-card{padding:14px 16px;}
+  .hero-numbers-inline .numbers-big{font-size:28px;}
+  .hero-numbers-inline .numbers-note{font-size:13px;padding:11px 14px;}
+  .hero-image-full img{border-radius:0;}
 }
 </style>
 
