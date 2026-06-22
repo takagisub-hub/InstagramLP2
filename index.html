@@ -3821,6 +3821,32 @@ body.modal-open{overflow:hidden;}
 @media(max-width:640px){
   .hero-numbers-inline .numbers-cards{grid-template-columns:1fr;}
 }
+/* SP全体の細かい調整 */
+@media(max-width:560px){
+  /* ヒーロー */
+  .hero{ padding-top:80px !important; }
+  .hero-numbers-wrap{ padding:16px 0 24px !important; }
+  .hero-numbers-inline .numbers-card{ padding:12px 14px !important; gap:12px !important; }
+  .hero-numbers-inline .numbers-icon{ width:40px !important; height:40px !important; flex:0 0 40px !important; }
+  .hero-numbers-inline .numbers-main{ font-size:14px !important; }
+  .hero-numbers-inline .numbers-big{ font-size:26px !important; }
+  .hero-numbers-inline .numbers-body p{ font-size:11px !important; }
+  .hero-numbers-inline .numbers-note{ font-size:12px !important; padding:10px 14px !important; }
+
+  /* 比較カード */
+  #compare .compare-grid-split{ grid-template-columns:1fr !important; }
+
+  /* 料金 */
+  .price-wrap{ grid-template-columns:1fr !important; }
+  .price-tag{ font-size:44px !important; }
+
+  /* お悩みセクション */
+  #worries .worries-hero{ padding:6px !important; }
+
+  /* フッターcontact */
+  .contact-grid{ grid-template-columns:1fr !important; }
+  .contact h2{ font-size:30px !important; }
+}
 </style>
 </body>
 </html>
