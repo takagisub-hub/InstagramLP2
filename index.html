@@ -3244,7 +3244,6 @@ body.modal-open{overflow:hidden;}
           <div class="strength-card strength-card-clean">
             <div class="strength-num">01</div>
             <div class="strength-label">TARGET</div>
-            <div class="strength-img"><img src="assets/strengths_01.png" alt="見込み客を増やすイメージ"></div>
             <h3>見込み客を増やす</h3>
             <p>相互フォローや購入フォロワーではなく、商品・サービスに興味を持ちそうな人へ。</p>
           </div>
@@ -3252,7 +3251,6 @@ body.modal-open{overflow:hidden;}
           <div class="strength-card strength-card-clean">
             <div class="strength-num">02</div>
             <div class="strength-label">ENGAGE</div>
-            <div class="strength-img"><img src="assets/strengths_02.png" alt="反応される状態へのイメージ"></div>
             <h3>反応される状態へ</h3>
             <p>保存・いいね・来店・問い合わせにつながる、質の高い反応を重視します。</p>
           </div>
@@ -3260,7 +3258,6 @@ body.modal-open{overflow:hidden;}
           <div class="strength-card strength-card-clean">
             <div class="strength-num">03</div>
             <div class="strength-label">NEXT</div>
-            <div class="strength-img"><img src="assets/strengths_03.png" alt="次の打ち手が分かるイメージ"></div>
             <h3>次の打ち手が分かる</h3>
             <p>投稿企画案と月次レポートを共有し、社内で判断しやすい形に整えます。</p>
           </div>
@@ -3730,63 +3727,7 @@ body.modal-open{overflow:hidden;}
 </script>
 
 
-<style id="strengths-img-style">
-/* カード全体をflexカラムに変更（gridオーバーライド） */
-#strengths .strength-card-clean{
-  display:flex !important;
-  flex-direction:column !important;
-  grid-template-columns:unset !important;
-  grid-template-areas:unset !important;
-  padding:0 !important;
-  overflow:hidden !important;
-}
-#strengths .strength-num{
-  order:2 !important;
-  grid-area:unset !important;
-  margin:20px 24px 8px !important;
-  align-self:unset !important;
-}
-#strengths .strength-card-clean h3{
-  order:3 !important;
-  grid-area:unset !important;
-  margin:0 24px 10px !important;
-  align-self:unset !important;
-  font-size:22px !important;
-}
-#strengths .strength-card-clean p{
-  order:4 !important;
-  grid-area:unset !important;
-  margin:0 24px 24px !important;
-  font-size:20px !important;
-}
-#strengths .strength-img{
-  order:1 !important;
-  width:100% !important;
-  border-radius:0 !important;
-  overflow:hidden !important;
-  margin:0 !important;
-  aspect-ratio:16/10 !important;
-  flex-shrink:0 !important;
-}
-#strengths .strength-img img{
-  width:100% !important;
-  height:100% !important;
-  object-fit:cover !important;
-  object-position:center top !important;
-  display:block !important;
-  transition:transform .4s ease !important;
-}
-#strengths .strength-card-clean:hover .strength-img img{
-  transform:scale(1.04) !important;
-}
-#strengths .strength-label{ display:none !important; }
-@media(max-width:900px){
-  #strengths .strength-img{ aspect-ratio:16/9 !important; }
-  #strengths .strength-num{ margin:16px 18px 6px !important; }
-  #strengths .strength-card-clean h3{ margin:0 18px 8px !important; }
-  #strengths .strength-card-clean p{ margin:0 18px 18px !important; }
-}
-</style>
+
 
 
 <style id="hero-full-style">
