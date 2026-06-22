@@ -92,14 +92,14 @@ img{max-width:100%;display:block}
 }
 .hero{
   position:relative;
-  min-height:720px;
+  min-height:auto;
   background:
     radial-gradient(circle at 78% 16%, rgba(36,183,255,.25), transparent 27%),
     radial-gradient(circle at 90% 78%, rgba(255,65,108,.18), transparent 28%),
     linear-gradient(135deg,#06172f 0%,#071d3e 60%,#06172f 100%);
   color:#fff;
-  overflow:hidden;
-  padding:72px 0 70px;
+  overflow:visible;
+  padding:72px 0 0;
 }
 .hero:before{
   content:"";
@@ -3734,6 +3734,8 @@ body.modal-open{overflow:hidden;}
 .hero-full{
   min-height:auto !important;
   padding:72px 0 0 !important;
+  overflow:visible !important;
+  padding-bottom:0 !important;
 }
 .hero-full .wrap{
   display:flex;
@@ -3813,14 +3815,18 @@ body.modal-open{overflow:hidden;}
 .hero-image-full{
   width:100%;
   margin-top:0;
+  line-height:0;
+  font-size:0;
 }
 .hero-image-full img{
   width:100%;
   max-width:100%;
   display:block;
   margin:0;
+  padding:0;
   border-radius:0;
   vertical-align:bottom;
+  line-height:0;
 }
 @media(max-width:760px){
   .hero-text-block{padding-bottom:28px;}
