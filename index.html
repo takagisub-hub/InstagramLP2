@@ -3731,24 +3731,60 @@ body.modal-open{overflow:hidden;}
 
 
 <style id="strengths-img-style">
+/* カード全体をflexカラムに変更（gridオーバーライド） */
+#strengths .strength-card-clean{
+  display:flex !important;
+  flex-direction:column !important;
+  grid-template-columns:unset !important;
+  grid-template-areas:unset !important;
+  padding:0 !important;
+  overflow:hidden !important;
+}
+#strengths .strength-num{
+  order:2 !important;
+  grid-area:unset !important;
+  margin:20px 24px 8px !important;
+  align-self:unset !important;
+}
+#strengths .strength-card-clean h3{
+  order:3 !important;
+  grid-area:unset !important;
+  margin:0 24px 10px !important;
+  align-self:unset !important;
+  font-size:22px !important;
+}
+#strengths .strength-card-clean p{
+  order:4 !important;
+  grid-area:unset !important;
+  margin:0 24px 24px !important;
+  font-size:20px !important;
+}
 #strengths .strength-img{
-  width:100%;
-  border-radius:18px;
-  overflow:hidden;
-  margin:20px 0 24px;
-  aspect-ratio:4/3;
+  order:1 !important;
+  width:100% !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+  margin:0 !important;
+  aspect-ratio:16/10 !important;
+  flex-shrink:0 !important;
 }
 #strengths .strength-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center top;
-  display:block;
-  border-radius:18px;
-  transition:transform .4s ease;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center top !important;
+  display:block !important;
+  transition:transform .4s ease !important;
 }
 #strengths .strength-card-clean:hover .strength-img img{
-  transform:scale(1.04);
+  transform:scale(1.04) !important;
+}
+#strengths .strength-label{ display:none !important; }
+@media(max-width:900px){
+  #strengths .strength-img{ aspect-ratio:16/9 !important; }
+  #strengths .strength-num{ margin:16px 18px 6px !important; }
+  #strengths .strength-card-clean h3{ margin:0 18px 8px !important; }
+  #strengths .strength-card-clean p{ margin:0 18px 18px !important; }
 }
 </style>
 
