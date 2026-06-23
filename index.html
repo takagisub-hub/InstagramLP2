@@ -4208,7 +4208,17 @@ var currentYear, currentMonth, selectedDate = null, selectedSlot = null;
 function toggleCal(){
   var p = document.getElementById('cal-panel');
   p.classList.toggle('open');
-  if(p.classList.contains('open') && calData.length === 0) loadCalData();
+  if(p.classList.contains('open')){
+    // リセット処理
+    document.getElementById('cal-thanks').style.display = 'none';
+    document.getElementById('cal-form').style.display = 'none';
+    var btn = document.getElementById('cal-submit');
+    btn.textContent = 'この日程で予約する';
+    btn.disabled = false;
+    document.getElementById('cal-name').value = '';
+    document.getElementById('cal-email').value = '';
+    if(calData.length === 0) loadCalData();
+  }
 }
 
 async function loadCalData(){
