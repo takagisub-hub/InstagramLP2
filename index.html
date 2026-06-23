@@ -4186,6 +4186,17 @@ body.modal-open{overflow:hidden;}
     <div id="cal-slots" style="display:none"></div>
   </div>
   <button id="cal-confirm" onclick="confirmBooking()">この日程で相談する →</button>
+  <div id="cal-form" style="display:none;flex-direction:column;gap:10px;padding:14px;">
+    <div style="font-size:13px;font-weight:900;color:#061a35;" id="cal-form-date"></div>
+    <input id="cal-name" type="text" placeholder="お名前" style="border:1.5px solid #e0e7ef;border-radius:10px;padding:10px 14px;font-size:14px;outline:none;font-family:inherit;">
+    <input id="cal-email" type="email" placeholder="メールアドレス" style="border:1.5px solid #e0e7ef;border-radius:10px;padding:10px 14px;font-size:14px;outline:none;font-family:inherit;">
+    <button id="cal-submit" onclick="submitBooking()" style="background:linear-gradient(135deg,#1c86ff,#24b7ff);color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:900;cursor:pointer;">この日程で予約する</button>
+  </div>
+  <div id="cal-thanks" style="display:none;padding:20px;text-align:center;">
+    <div style="font-size:24px;margin-bottom:8px;">✅</div>
+    <div style="font-weight:900;color:#061a35;margin-bottom:6px;">予約が完了しました！</div>
+    <div style="font-size:13px;color:#536780;">確認メールをお送りしました。</div>
+  </div>
 </div>
 
 <button id="cal-fab" onclick="toggleCal()">📅</button>
@@ -4296,10 +4307,40 @@ function selectDate(dateStr){
 
 function confirmBooking(){
   if(!selectedSlot) return;
-  var contact = document.getElementById('contact');
-  if(contact) contact.scrollIntoView({behavior:'smooth'});
-  document.getElementById('cal-panel').classList.remove('open');
-  alert(selectedDate + ' ' + selectedSlot.label + 'で相談を申し込みます。\nフォームにお名前とメールアドレスをご入力ください。');
+  document.getElementById('cal-slots').style.display = 'none';
+  document.getElementById('cal-confirm').style.display = 'none';
+  var form = document.getElementById('cal-form');
+  form.style.display = 'flex';
+  document.getElementById('cal-form-date').textContent = selectedDate + ' ' + selectedSlot.label;
+}
+
+async function submitBooking(){
+  var name = document.getElementById('cal-name').value.trim();
+  var email = document.getElementById('cal-email').value.trim();
+  if(!name || !email){ alert('お名前とメールアドレスを入力してください'); return; }
+  var btn = document.getElementById('cal-submit');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+  try {
+    var res = await fetch('https://spring-butterfly-7b4bkirinz-calendar.kirinz.workers.dev/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, date: selectedDate, slot: selectedSlot.label })
+    });
+    var data = await res.json();
+    if(data.ok){
+      document.getElementById('cal-form').style.display = 'none';
+      document.getElementById('cal-thanks').style.display = 'block';
+    } else {
+      alert('エラーが発生しました。もう一度お試しください。');
+      btn.textContent = 'この日程で予約する';
+      btn.disabled = false;
+    }
+  } catch(e) {
+    alert('エラーが発生しました。');
+    btn.textContent = 'この日程で予約する';
+    btn.disabled = false;
+  }
 }
 </script>
 
