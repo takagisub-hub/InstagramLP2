@@ -2927,6 +2927,11 @@ body.modal-open{overflow:hidden;}
   <header class="nav">
     <div class="nav-in">
       <nav class="nav-links">
+        <div class="nav-feature-cards">
+          <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
+          <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
+          <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
+        </div>
         <a href="#worries">お悩み</a>
         <a href="#compare">費用比較</a>
         <a href="#why">選ばれる理由</a>
@@ -2935,11 +2940,6 @@ body.modal-open{overflow:hidden;}
         <a href="#strengths">なぜKIRINZ</a>
         <a href="#price">料金</a>
         <a href="#flow">流れ</a>
-        <div class="nav-feature-cards">
-          <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
-          <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
-          <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
-        </div>
         <a href="#contact" class="nav-cta">無料相談</a>
       </nav>
     </div>
@@ -4382,20 +4382,24 @@ async function submitBooking(){
   justify-content:flex-end !important;
 }
 .nav-in{
-  width:auto !important;
+  width:100% !important;
   height:54px !important;
-  padding:0 !important;
+  padding:0 clamp(22px,4vw,72px) !important;
   background:transparent !important;
   border:0 !important;
   border-radius:0 !important;
   box-shadow:none !important;
   overflow:visible !important;
-  justify-content:flex-end !important;
+  justify-content:space-between !important;
+  display:flex !important;
+  align-items:center !important;
 }
 .nav-links{
-  width:auto !important;
-  justify-content:flex-end !important;
-  flex:0 0 auto !important;
+  width:100% !important;
+  justify-content:space-between !important;
+  flex:1 !important;
+  display:flex !important;
+  align-items:center !important;
 }
 @media(max-width:980px){
   .nav,.nav.scrolled{
