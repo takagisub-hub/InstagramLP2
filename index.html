@@ -45,7 +45,7 @@ body{
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
 .page{ width:100%; max-width:none; margin:0; background:#fff; border-radius:0; overflow:hidden; position:relative; }
-.wrap{width:min(1600px,93vw);margin:0 auto;padding-right:4vw;padding-left:0}
+.wrap{width:min(1600px,93vw);margin:0 auto}
 .nav{
   position:absolute;
   top:0;right:0;
@@ -2946,13 +2946,13 @@ body.modal-open{overflow:hidden;}
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-left" style="padding-left:clamp(24px,5vw,80px)">
-          <p class="hero-sub-kicker" style="font-size:13px;color:#fff;margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
+          <p class="hero-sub-kicker" style="font-size:13px;color:rgba(255,255,255,0.68);margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
           <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(85px,11.6vw,133px);line-height:1.0;letter-spacing:0.04em;margin-bottom:20px;margin-top:0;"><span class="hl" style="display:block;">FANAD</span><span class="hl blue" style="display:block;">by&nbsp;KIRINZ</span></h1>
           
           <div class="hero-numbers">
-            <p style="font-size:19px;color:#fff;margin:0 0 4px;">フォロワーではなく、ファンを増やす。</p>
-            <p style="font-size:17px;color:#fff;margin:0 0 5px;">Instagramを、事業成果につながる<strong style="color:#fff;font-weight:500;">ファン資産</strong>へ。</p>
-            <p class="hero-support-copy" style="font-size:16px;color:#fff;margin:0 0 18px;line-height:1.9;font-weight:800;letter-spacing:0.01em;">AI診断 × 運用戦略 × コンテンツ設計で、<br><span class="hero-copy-em">見られるアカウント</span>から<span class="hero-copy-em hero-copy-em-strong">選ばれるアカウント</span>へ。</p>
+            <p style="font-size:16px;color:rgba(255,255,255,0.85);margin:0 0 4px;">フォロワーではなく、ファンを増やす。</p>
+            <p style="font-size:14px;color:rgba(255,255,255,0.88);margin:0 0 5px;">Instagramを、事業成果につながる<strong style="color:#fff;font-weight:500;">ファン資産</strong>へ。</p>
+            <p class="hero-support-copy" style="font-size:13px;color:rgba(255,255,255,0.76);margin:0 0 18px;line-height:1.9;font-weight:800;letter-spacing:0.01em;">AI診断 × 運用戦略 × コンテンツ設計で、<br><span class="hero-copy-em">見られるアカウント</span>から<span class="hero-copy-em hero-copy-em-strong">選ばれるアカウント</span>へ。</p>
             <div class="hero-numbers-cards" style="display:none">
               <div class="hero-num-card" style="padding:14px 16px;">
                 <div class="hero-num-main" style="font-size:11px;color:#24b7ff;letter-spacing:0.08em;margin-bottom:4px;">AI診断</div>
@@ -4775,5 +4775,87 @@ async function submitBooking(){
 }
 </style>
 
+
+<style id="feature-card-white-base-fix">
+/* ===== 上3カード：文字サイズは少し戻し、白ベースに変更 ===== */
+.nav-fcard{
+  color:#1f2f46 !important;
+  font-size:12px !important;
+  line-height:1.35 !important;
+  font-weight:800 !important;
+  letter-spacing:0 !important;
+  background:rgba(255,255,255,.98) !important;
+  border:1px solid rgba(22,136,255,.22) !important;
+  box-shadow:0 8px 22px rgba(0,0,0,.08) !important;
+  padding:7px 14px !important;
+}
+.nav-fcard span{
+  display:block !important;
+  color:#1688ff !important;
+  font-size:10.5px !important;
+  line-height:1.2 !important;
+  font-weight:900 !important;
+  margin-bottom:4px !important;
+  text-shadow:none !important;
+}
+@media(max-width:1500px){
+  .nav-fcard{
+    font-size:11.5px !important;
+    padding:7px 12px !important;
+  }
+  .nav-fcard span{
+    font-size:10px !important;
+  }
+}
+</style>
+
+<style id="left-shift-and-white-text-fix">
+/* ===== ヒーロー全体：バランスはそのままに少し左へ ===== */
+@media (min-width:981px){
+  .hero .wrap.hero-grid{
+    transform:translateX(-42px) !important;
+  }
+  .nav-feature-cards{
+    transform:translateX(-42px) !important;
+  }
+}
+
+@media (min-width:1281px) and (max-width:1500px){
+  .hero .wrap.hero-grid,
+  .nav-feature-cards{
+    transform:translateX(-30px) !important;
+  }
+}
+
+/* ===== 指定テキストを真っ白に ===== */
+.hero-sub-kicker,
+.hero-left .lead,
+.hero-support-copy{
+  color:#ffffff !important;
+  text-shadow:none !important;
+}
+.hero-support-copy .hero-copy-em,
+.hero-support-copy .hero-copy-em-strong{
+  color:#ffffff !important;
+  background:none !important;
+  -webkit-text-fill-color:#ffffff !important;
+  text-shadow:none !important;
+  padding:0 !important;
+}
+</style>
+
+<style id="feature-card-color-restore-fix">
+/* ===== 上3カード：色だけ前の濃紺ベースに戻す ===== */
+.nav-fcard{
+  background:rgba(255,255,255,.075) !important;
+  border:1px solid rgba(36,183,255,.30) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 10px 24px rgba(0,0,0,.10) !important;
+  color:rgba(255,255,255,.92) !important;
+}
+.nav-fcard span{
+  color:#24b7ff !important;
+  text-shadow:none !important;
+}
+</style>
 </body>
 </html>
