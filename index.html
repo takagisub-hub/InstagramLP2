@@ -4458,28 +4458,36 @@ async function submitBooking(){
 </style>
 
 <style id="hero-img-final">
+/* ヒーローセクションを relative に */
+.hero{
+  position:relative !important;
+  overflow:hidden !important;
+}
+/* グリッド左側のみ表示、右はabsoluteで上書き */
+.hero .wrap.hero-grid{
+  grid-template-columns:1fr 1fr !important;
+  position:relative !important;
+  z-index:2 !important;
+}
+/* 画像を右上から配置・右端ブリード */
 .hero-image{
-  display:flex !important;
-  align-items:center !important;
-  justify-content:flex-start !important;
+  position:absolute !important;
+  top:-80px !important;
+  right:-3.5vw !important;
+  width:55vw !important;
+  max-width:860px !important;
   animation:none !important;
-  margin-left:-40px !important;
-  margin-right:-3.5vw !important;
-  overflow:visible !important;
+  z-index:1 !important;
+  margin:0 !important;
 }
 .hero-image img{
-  width:120% !important;
+  width:100% !important;
   height:auto !important;
   max-height:none !important;
   object-fit:contain !important;
-  border-radius:20px 0 0 20px !important;
-  box-shadow:0 28px 68px rgba(0,0,0,.40) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
   animation:none !important;
-}
-/* ナビカードを左端ゼロに */
-.nav-feature-cards{
-  margin-left:0 !important;
-  padding-left:0 !important;
 }
 </style>
 
