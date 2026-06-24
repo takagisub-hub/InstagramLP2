@@ -2925,7 +2925,8 @@ body.modal-open{overflow:hidden;}
 <body>
 <div class="page">
   <header class="nav">
-    <div class="nav-in" style="padding-left:calc((100vw - min(1600px,93vw))/2 + clamp(76px,7.8vw,128px));padding-right:clamp(28px,3.5vw,68px);">
+    <div class="nav-in" style="padding:0;justify-content:stretch;">
+      <div style="width:min(1600px,93vw);margin:0 auto;display:flex;align-items:center;padding-left:clamp(76px,7.8vw,128px);padding-right:clamp(28px,3.5vw,68px);">
       <nav class="nav-links">
         <div class="nav-feature-cards">
           <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
@@ -2942,6 +2943,7 @@ body.modal-open{overflow:hidden;}
         <a href="#flow">流れ</a>
         <a href="#contact" class="nav-cta">無料相談</a>
       </nav>
+      </div>
     </div>
   </header>
 
