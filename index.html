@@ -2935,6 +2935,11 @@ body.modal-open{overflow:hidden;}
         <a href="#strengths">なぜKIRINZ</a>
         <a href="#price">料金</a>
         <a href="#flow">流れ</a>
+        <div class="nav-feature-cards">
+          <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
+          <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
+          <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
+        </div>
         <a href="#contact" class="nav-cta">無料相談</a>
       </nav>
     </div>
@@ -2951,7 +2956,7 @@ body.modal-open{overflow:hidden;}
             <p style="font-size:16px;color:rgba(255,255,255,0.6);margin:0 0 4px;">フォロワーではなく、ファンを増やす。</p>
             <p style="font-size:14px;color:rgba(255,255,255,0.7);margin:0 0 5px;">Instagramを、事業成果につながる<strong style="color:#fff;font-weight:500;">ファン資産</strong>へ。</p>
             <p style="font-size:12px;color:rgba(255,255,255,0.35);margin:0 0 16px;line-height:1.8;">AI診断 × 運用戦略 × コンテンツ設計で、<br>"見られるアカウント"から"選ばれるアカウント"へ。</p>
-            <div class="hero-numbers-cards" style="display:flex;gap:8px;">
+            <div class="hero-numbers-cards" style="display:none">
               <div class="hero-num-card" style="padding:14px 16px;">
                 <div class="hero-num-main" style="font-size:11px;color:#24b7ff;letter-spacing:0.08em;margin-bottom:4px;">AI診断</div>
                 <p class="hero-num-sub" style="font-size:12px;line-height:1.5;">アカウントの課題をAIが即診断</p>
@@ -4407,6 +4412,32 @@ async function submitBooking(){
     padding:0 16px !important;
     justify-content:flex-end !important;
   }
+}
+.nav-feature-cards{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.nav-fcard{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(36,183,255,.22);
+  border-radius:10px;
+  padding:6px 12px;
+  font-size:11px;
+  color:rgba(255,255,255,.75);
+  line-height:1.4;
+  white-space:nowrap;
+}
+.nav-fcard span{
+  display:block;
+  color:#24b7ff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  margin-bottom:2px;
+}
+@media(max-width:1280px){
+  .nav-feature-cards{ display:none; }
 }
 </style>
 
