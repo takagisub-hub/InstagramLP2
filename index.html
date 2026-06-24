@@ -2946,7 +2946,7 @@ body.modal-open{overflow:hidden;}
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-left" style="padding-left:clamp(24px,5vw,80px)">
-          <div class="nav-feature-cards" style="position:fixed;top:0;z-index:1001;display:flex;gap:8px;align-items:center;height:54px;margin:0;">
+          <div class="nav-feature-cards" style="display:flex;gap:8px;align-items:center;margin:0 0 16px;">
             <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
             <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
             <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
@@ -4623,19 +4623,5 @@ async function submitBooking(){
 })();
 </script>
 
-<script id="nav-align-js">
-(function(){
-  function align(){
-    var heroLeft = document.querySelector('.hero-left');
-    var navCards = document.querySelector('.nav-feature-cards');
-    if(!heroLeft || !navCards) return;
-    navCards.style.left = heroLeft.getBoundingClientRect().left + 'px';
-  }
-  window.addEventListener('load', align);
-  window.addEventListener('resize', align);
-  setTimeout(align, 50);
-  setTimeout(align, 300);
-})();
-</script>
 </body>
 </html>
