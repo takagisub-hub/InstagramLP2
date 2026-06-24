@@ -2928,11 +2928,6 @@ body.modal-open{overflow:hidden;}
     <div class="nav-in" style="padding:0;justify-content:stretch;">
       <div style="width:min(1600px,93vw);margin:0 auto;display:flex;align-items:center;padding-left:clamp(120px,12vw,200px);padding-right:clamp(28px,3.5vw,68px);">
       <nav class="nav-links">
-        <div class="nav-feature-cards">
-          <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
-          <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
-          <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
-        </div>
         <a href="#worries">お悩み</a>
         <a href="#compare">費用比較</a>
         <a href="#why">選ばれる理由</a>
@@ -2951,6 +2946,11 @@ body.modal-open{overflow:hidden;}
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-left" style="padding-left:clamp(24px,5vw,80px)">
+          <div class="nav-feature-cards" style="margin:0 0 16px;position:relative;z-index:1;">
+            <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
+            <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
+            <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
+          </div>
           <p style="font-size:11px;color:rgba(255,255,255,0.75);margin:0 0 8px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:400;">Instagramファン化コンサルティング</p>
           <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(85px,11.6vw,133px);line-height:1.0;letter-spacing:0.04em;margin-bottom:20px;margin-top:0;"><span class="hl" style="display:block;">FANAD</span><span class="hl blue" style="display:block;">by&nbsp;KIRINZ</span></h1>
           
@@ -4620,29 +4620,6 @@ async function submitBooking(){
   window.addEventListener('load', alignNavCards);
   window.addEventListener('resize', alignNavCards);
   setTimeout(alignNavCards, 100);
-})();
-</script>
-
-<script id="nav-align-js">
-(function(){
-  function align(){
-    var heroLeft = document.querySelector('.hero-left');
-    var navCards = document.querySelector('.nav-feature-cards');
-    if(!heroLeft || !navCards) return;
-    var x = heroLeft.getBoundingClientRect().left;
-    navCards.style.position = 'fixed';
-    navCards.style.left = x + 'px';
-    navCards.style.top = '0';
-    navCards.style.zIndex = '1000';
-    navCards.style.margin = '0';
-    navCards.style.height = '54px';
-    navCards.style.display = 'flex';
-    navCards.style.alignItems = 'center';
-  }
-  window.addEventListener('load', align);
-  window.addEventListener('resize', align);
-  setTimeout(align, 50);
-  setTimeout(align, 300);
 })();
 </script>
 
