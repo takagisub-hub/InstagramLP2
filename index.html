@@ -4335,7 +4335,7 @@ async function submitBooking(){
     var res = await fetch('https://spring-butterfly-7b4bkirinz-calendar.kirinz.workers.dev/book', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, date: selectedDate, slot: selectedSlot.label })
+      body: JSON.stringify({ name, email, date: selectedDate, slot: selectedSlot.label, assignee: selectedSlot.assignee || '' })
     });
     var data = await res.json();
     if(data.ok){
