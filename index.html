@@ -4880,5 +4880,26 @@ async function submitBooking(){
   }
 }
 </style>
+<style id="hero-image-slight-right-fix">
+/* 右画像だけ、ほんの少し右へ */
+@media (min-width:981px){
+  .hero-image{
+    transform:translateX(18px) !important;
+  }
+}
+
+@media (min-width:1281px){
+  .hero-image{
+    transform:translateX(22px) !important;
+  }
+}
+</style>
+
+<style id="no-char-anim">
+.hero h1 .ch{ opacity:1 !important; transform:none !important; animation:none !important; }
+.js .hero h1 .ch{ opacity:1 !important; transform:none !important; animation:none !important; }
+.js .hero h1.chars-in .ch{ animation:none !important; }
+</style>
+
 </body>
 </html>
