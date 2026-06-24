@@ -4606,5 +4606,21 @@ async function submitBooking(){
   }
 }
 </style>
+<script id="nav-align-js">
+(function(){
+  function alignNavCards(){
+    var fanad = document.querySelector('.hero-left');
+    var navCards = document.querySelector('.nav-feature-cards');
+    if(!fanad || !navCards) return;
+    var left = fanad.getBoundingClientRect().left;
+    navCards.style.marginLeft = left + 'px';
+    navCards.style.flexShrink = '0';
+  }
+  window.addEventListener('load', alignNavCards);
+  window.addEventListener('resize', alignNavCards);
+  setTimeout(alignNavCards, 100);
+})();
+</script>
+
 </body>
 </html>
