@@ -5077,9 +5077,9 @@ async function submitBooking(){
   }
 
   /* SP専用カードはPCで非表示 */
-  .sp-feature-cards{ display:none; }
+  .sp-feature-cards{ display:none !important; }
 
-
+@media(max-width:768px){
   /* ===== セクション共通 ===== */
   .section{ padding:36px 0 !important; }
   .wrap{ width:92vw !important; }
