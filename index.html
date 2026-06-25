@@ -4049,7 +4049,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
   </div>
 </div>
 
-<button id="chat-fab" onclick="document.getElementById('chat-window').classList.toggle('open')">
+<button id="chat-fab" onclick="toggleChat()">
   <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
 </button>
 
@@ -4106,6 +4106,15 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
       var logText = history.map(function(m){ return (m.role === 'user' ? 'お客様：' : 'AI：') + m.content; }).join('\n\n');
       var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
       fetch(GAS_URL + '?type=chatlog&log=' + encodeURIComponent(logText), { redirect: 'follow' }).catch(function(){});
+    }
+  };
+
+  window.toggleChat = function() {
+    var win = document.getElementById('chat-window');
+    if (win.classList.contains('open')) {
+      window.closeChatWindow();
+    } else {
+      win.classList.add('open');
     }
   };
 
