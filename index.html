@@ -4105,7 +4105,12 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
     if (history.length > 0) {
       var logText = history.map(function(m){ return (m.role === 'user' ? 'お客様：' : 'AI：') + m.content; }).join('\n\n');
       var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
-      fetch(GAS_URL + '?type=chatlog&log=' + encodeURIComponent(logText), { redirect: 'follow' }).catch(function(){});
+      fetch(GAS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'type=chatlog&log=' + encodeURIComponent(logText),
+        redirect: 'follow'
+      }).catch(function(){});
     }
   };
 
