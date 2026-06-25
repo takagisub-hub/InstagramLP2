@@ -4913,8 +4913,44 @@ async function submitBooking(){
   }
 })();
 </script>
-<style id="sp-redesign">
+<style id="sp-redesign-fix">
 @media(max-width:768px){
+
+  /* ナビ高さを確保 */
+  .nav-in{
+    height:52px !important;
+  }
+
+  /* ヒーローのpadding-topをナビ分確保 */
+  .hero{
+    padding-top:68px !important;
+  }
+
+  /* ナビカードをヒーロー内に表示（ナビからは非表示） */
+  .nav-feature-cards{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    margin:0 0 16px !important;
+    position:static !important;
+    width:100% !important;
+  }
+  .nav-fcard{
+    width:100% !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:unset !important;
+    font-size:13px !important;
+    line-height:1.5 !important;
+    padding:10px 14px !important;
+  }
+  .nav-fcard span{
+    font-size:11px !important;
+  }
+}
+</style>
+
 
   /* ===== ナビ ===== */
   .nav{
