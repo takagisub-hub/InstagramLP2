@@ -2951,7 +2951,12 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-left" style="padding-left:clamp(24px,5vw,80px)">
-          <p class="hero-sub-kicker" style="font-size:13px;color:rgba(255,255,255,0.68);margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
+          <p class="hero-sub-kicker" style="font-size:13px;color:#fff;margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
+          <div class="sp-feature-cards">
+            <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
+            <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
+            <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
+          </div>
           <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(85px,11.6vw,133px);line-height:1.0;letter-spacing:0.04em;margin-bottom:20px;margin-top:0;"><span class="hl" style="display:block;">FANAD</span><span class="hl blue" style="display:block;">by&nbsp;KIRINZ</span></h1>
           
           <div class="hero-numbers">
@@ -4985,6 +4990,26 @@ async function submitBooking(){
     padding:8px 14px !important;
   }
 
+  /* SP専用カードを表示 */
+  .sp-feature-cards{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    margin:0 0 16px !important;
+    width:100% !important;
+  }
+  .sp-feature-cards .nav-fcard{
+    width:100% !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    font-size:13px !important;
+    line-height:1.5 !important;
+    padding:10px 14px !important;
+  }
+  .sp-feature-cards .nav-fcard span{
+    font-size:11px !important;
+  }
+
   /* ===== ヒーロー ===== */
   .hero{
     min-height:auto !important;
@@ -5050,22 +5075,9 @@ async function submitBooking(){
     font-size:14px !important;
   }
 
-  /* ===== ナビFABカード（ヒーロー内）===== */
-  .nav-feature-cards{
-    display:grid !important;
-    grid-template-columns:1fr !important;
-    gap:8px !important;
-    margin:0 0 12px !important;
-  }
-  .nav-fcard{
-    padding:10px 14px !important;
-    font-size:13px !important;
-    border-radius:12px !important;
-  }
-  .nav-fcard span{
-    font-size:11px !important;
-    margin-bottom:2px !important;
-  }
+  /* SP専用カードはPCで非表示 */
+  .sp-feature-cards{ display:none; }
+
 
   /* ===== セクション共通 ===== */
   .section{ padding:36px 0 !important; }
