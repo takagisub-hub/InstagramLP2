@@ -4082,27 +4082,27 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
     return div;
   }
 
+  var history = [];
+
   async function sendMessage(){
     var text = input.value.trim();
     if(!text) return;
     addMsg(text, 'user');
     input.value = '';
+    history.push({ role: 'user', content: text });
     var typing = addMsg('入力中...', 'typing');
 
     try {
-      var res = await fetch('https://api.anthropic.com/v1/messages', {
+      var res = await fetch('https://billowing-morning-b302fanad-chatbot.kirinz.workers.dev', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({
-          model:'claude-sonnet-4-6',
-          max_tokens:400,
-          system:'あなたはKIRINZのInstagram運用支援サービスの案内AIです。KIRINZはAIを活用して質の高いフォロワーを増やすInstagram運用代行サービスです。料金は月額10万円（税別）。週5本の投稿企画、月次レポート、フォロワー純増支援が含まれます。相互フォローや購入フォロワーではなく、本当に興味を持つ人を増やします。質問に対して親切・簡潔に日本語で答えてください。詳細な相談は無料相談フォームへ誘導してください。',
-          messages:[{role:'user',content:text}]
-        })
+        body: JSON.stringify({ messages: history })
       });
       var data = await res.json();
       typing.remove();
-      addMsg(data.content[0].text, 'bot');
+      var reply = data.content[0].text;
+      history.push({ role: 'assistant', content: reply });
+      addMsg(reply, 'bot');
     } catch(e) {
       typing.remove();
       addMsg('申し訳ありません。エラーが発生しました。フォームよりお問い合わせください。', 'bot');
