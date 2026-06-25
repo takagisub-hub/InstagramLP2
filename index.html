@@ -3460,21 +3460,36 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
   });
-  form.addEventListener('submit', function(e){
+  form.addEventListener('submit', async function(e){
     e.preventDefault();
     var data = new FormData(form);
-    var subject = '【無料相談】Instagram運用支援について';
-    var body = [
-      '会社名・店舗名：' + (data.get('company') || ''),
-      'お名前：' + (data.get('name') || ''),
-      'メールアドレス：' + (data.get('email') || ''),
-      'Instagramアカウント：' + (data.get('account') || ''),
-      '相談したい内容：' + (data.get('interest') || ''),
-      '',
-      'ご相談内容：',
-      (data.get('message') || '')
-    ].join('\n');
-    window.location.href = 'mailto:info@kirinz.tokyo?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    var btn = form.querySelector('button[type="submit"]');
+    btn.textContent = '送信中...';
+    btn.disabled = true;
+    var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
+    var params = new URLSearchParams({
+      type: 'contact',
+      name: data.get('name') || '',
+      company: data.get('company') || '',
+      email: data.get('email') || '',
+      account: data.get('account') || '',
+      interest: data.get('interest') || '',
+      message: data.get('message') || ''
+    });
+    try {
+      await fetch(GAS_URL + '?' + params.toString(), { redirect: 'follow' });
+      btn.textContent = '送信完了！';
+      form.reset();
+      setTimeout(function(){
+        document.getElementById('contactModal').classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+        btn.textContent = '入力内容を送信する';
+        btn.disabled = false;
+      }, 1500);
+    } catch(err) {
+      btn.textContent = '送信に失敗しました';
+      btn.disabled = false;
+    }
   });
 })();
 
