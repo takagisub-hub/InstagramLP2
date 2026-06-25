@@ -2932,7 +2932,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
   <header class="nav">
     <div class="nav-in" style="padding-left:calc((100vw - min(1600px,93vw))/2 + clamp(76px,7.8vw,128px));padding-right:clamp(28px,3.5vw,68px);">
       <nav class="nav-links">
-        <div class="nav-feature-cards">
+        <div class="nav-feature-cards sp-nav-cards">
           <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
           <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
           <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
@@ -2951,7 +2951,12 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-left" style="padding-left:clamp(24px,5vw,80px)">
-          <p class="hero-sub-kicker" style="font-size:13px;color:rgba(255,255,255,0.68);margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
+          <p class="hero-sub-kicker" style="font-size:13px;color:#fff;margin:0 0 10px;letter-spacing:0.06em;font-family:'Noto Sans JP',sans-serif;font-weight:800;">Instagramファン化コンサルティング</p>
+          <div class="sp-feature-cards">
+            <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
+            <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
+            <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
+          </div>
           <h1 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(85px,11.6vw,133px);line-height:1.0;letter-spacing:0.04em;margin-bottom:20px;margin-top:0;"><span class="hl" style="display:block;">FANAD</span><span class="hl blue" style="display:block;">by&nbsp;KIRINZ</span></h1>
           
           <div class="hero-numbers">
@@ -3231,7 +3236,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
         <div class="sec-head">
           <div class="eyebrow">WHY KIRINZ</div>
           <h2 class="sec-title">ただ増やすのではなく、<br>成果につながる状態をつくる。</h2>
-          <p class="sec-lead">フォロワー数の価値は下がり、今や保存・いいね・来店などのエンゲージメントが評価基準。KIRINZはAIで本当に興味を持つ人だけを増やします。</p>
+          <p class="sec-lead">フォロワー数の価値は下がり、今や保存・いいね・来店などのエンゲージメントが評価基準。<br>KIRINZはAIで本当に興味を持つ人だけを増やします。</p>
         </div>
 
         <div class="strength-cards strength-cards-clean">
@@ -3466,6 +3471,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
     var btn = form.querySelector('button[type="submit"]');
     btn.textContent = '送信中...';
     btn.disabled = true;
+
     var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
     var params = new URLSearchParams({
       type: 'contact',
@@ -3476,6 +3482,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
       interest: data.get('interest') || '',
       message: data.get('message') || ''
     });
+
     try {
       await fetch(GAS_URL + '?' + params.toString(), { redirect: 'follow' });
       btn.textContent = '送信完了！';
@@ -4072,7 +4079,6 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
   var input = document.getElementById('chat-input');
   var msgs = document.getElementById('chat-messages');
   var sendBtn = document.getElementById('chat-send');
-
   var history = [];
 
   function addMsg(text, type){
@@ -4107,6 +4113,11 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
       var reply = data.content[0].text;
       history.push({ role: 'assistant', content: reply });
       addMsg(reply, 'bot');
+
+      // チャットログをスプシに自動保存
+      var logText = history.map(function(m){ return (m.role === 'user' ? 'お客様：' : 'AI：') + m.content; }).join('\n\n');
+      var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
+      fetch(GAS_URL + '?type=chatlog&log=' + encodeURIComponent(logText), { redirect: 'follow' }).catch(function(){});
     } catch(e) {
       typing.remove();
       addMsg('申し訳ありません。エラーが発生しました。フォームよりお問い合わせください。', 'bot');
@@ -4936,5 +4947,231 @@ async function submitBooking(){
   }
 })();
 </script>
+<style id="sp-redesign-fix">
+@media(max-width:768px){
+
+  /* ナビ高さを確保 */
+  .nav-in{
+    height:52px !important;
+  }
+
+  /* ヒーローのpadding-topをナビ分確保 */
+  .hero{
+    padding-top:68px !important;
+  }
+
+  /* ナビカードをヒーロー内に表示（ナビからは非表示） */
+  .nav-feature-cards{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    margin:0 0 16px !important;
+    position:static !important;
+    width:100% !important;
+  }
+  .nav-fcard{
+    width:100% !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    overflow:visible !important;
+    text-overflow:unset !important;
+    font-size:13px !important;
+    line-height:1.5 !important;
+    padding:10px 14px !important;
+  }
+  .nav-fcard span{
+    font-size:11px !important;
+  }
+}
+</style>
+
+
+  /* ===== ナビ ===== */
+  .nav{
+    top:0 !important;
+    left:0 !important;
+    right:0 !important;
+    width:100% !important;
+    background:rgba(6,23,47,.95) !important;
+    backdrop-filter:blur(10px) !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:0 2px 16px rgba(0,0,0,.3) !important;
+  }
+  .nav-in{
+    width:100% !important;
+    height:52px !important;
+    padding:0 16px !important;
+    justify-content:flex-end !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+  .nav-links{
+    width:auto !important;
+    justify-content:flex-end !important;
+    flex:0 0 auto !important;
+    gap:0 !important;
+  }
+  .nav-links a:not(.nav-cta){ display:none !important; }
+  .nav-feature-cards{ display:none !important; }
+  .sp-nav-cards{ display:none !important; }
+  .nav-cta{
+    font-size:13px !important;
+    padding:8px 14px !important;
+  }
+
+  /* SP専用カードを表示 */
+  .sp-feature-cards{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:8px !important;
+    margin:0 0 16px !important;
+    width:100% !important;
+  }
+  .sp-feature-cards .nav-fcard{
+    width:100% !important;
+    box-sizing:border-box !important;
+    white-space:normal !important;
+    font-size:13px !important;
+    line-height:1.5 !important;
+    padding:10px 14px !important;
+  }
+  .sp-feature-cards .nav-fcard span{
+    font-size:11px !important;
+  }
+
+  /* ===== ヒーロー ===== */
+  .hero{
+    min-height:auto !important;
+    padding:64px 0 32px !important;
+    overflow:hidden !important;
+  }
+  .hero .wrap.hero-grid{
+    display:flex !important;
+    flex-direction:column !important;
+    gap:20px !important;
+    width:92vw !important;
+    margin:0 auto !important;
+    padding:0 !important;
+  }
+  .hero-left{
+    order:1 !important;
+    padding-left:0 !important;
+    padding-right:0 !important;
+    gap:12px !important;
+  }
+  .hero-image{
+    order:2 !important;
+    width:100% !important;
+    margin:0 !important;
+    transform:none !important;
+  }
+  .hero-image img{
+    width:100% !important;
+    height:auto !important;
+    border-radius:16px !important;
+    object-fit:cover !important;
+  }
+
+  /* キッカー */
+  .hero-sub-kicker{
+    font-size:11px !important;
+    margin-bottom:6px !important;
+  }
+
+  /* h1 タイトル */
+  .hero h1{
+    font-size:clamp(52px,14vw,72px) !important;
+    margin-bottom:12px !important;
+    white-space:normal !important;
+  }
+
+  /* コピーテキスト */
+  .hero-numbers p{
+    font-size:15px !important;
+    line-height:1.7 !important;
+  }
+
+  /* ボタン */
+  .hero-left .btns{
+    display:flex !important;
+    flex-direction:row !important;
+    gap:10px !important;
+    margin-top:4px !important;
+  }
+  .hero-left .btns .btn{
+    flex:1 !important;
+    min-height:48px !important;
+    font-size:14px !important;
+  }
+
+  /* SP専用カードはPCで非表示 */
+  .sp-feature-cards{ display:none !important; }
+
+@media(max-width:768px){
+  /* ===== セクション共通 ===== */
+  .section{ padding:36px 0 !important; }
+  .wrap{ width:92vw !important; }
+  .sec-title{ font-size:clamp(26px,7vw,34px) !important; line-height:1.2 !important; }
+  .sec-lead{ font-size:14px !important; line-height:1.7 !important; }
+  .eyebrow{ font-size:11px !important; }
+
+  /* ===== 比較カード ===== */
+  #compare .compare-grid-split{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  /* ===== なぜInstagram ===== */
+  #merits .cards-4{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  #merits .card.merit{
+    padding:20px 18px !important;
+  }
+
+  /* ===== 支援内容 ===== */
+  #partner .support-pillars-v2{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  #partner .support-pillar-v2{
+    padding:18px 16px !important;
+    min-height:0 !important;
+  }
+  #partner .support-bottom-v2 span{
+    font-size:13px !important;
+    padding:8px 12px !important;
+  }
+
+  /* ===== WHY KIRINZ ===== */
+  #strengths .strength-cards-clean{
+    grid-template-columns:1fr !important;
+    gap:12px !important;
+  }
+  #strengths .strength-card-clean{
+    padding:20px 18px !important;
+  }
+
+  /* ===== 料金 ===== */
+  .price-wrap{
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+  .price-tag{ font-size:44px !important; }
+
+  /* ===== フロー ===== */
+  .flow-vertical{ padding-left:22px !important; }
+
+  /* ===== FAB ===== */
+  #chat-fab, #cal-fab{
+    width:44px !important;
+    height:44px !important;
+  }
+
+}
+</style>
+
 </body>
 </html>
