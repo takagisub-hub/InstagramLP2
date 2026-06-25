@@ -2932,7 +2932,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
   <header class="nav">
     <div class="nav-in" style="padding-left:calc((100vw - min(1600px,93vw))/2 + clamp(76px,7.8vw,128px));padding-right:clamp(28px,3.5vw,68px);">
       <nav class="nav-links">
-        <div class="nav-feature-cards">
+        <div class="nav-feature-cards sp-nav-cards">
           <div class="nav-fcard"><span>AI診断</span>アカウントの課題をAIが即診断</div>
           <div class="nav-fcard"><span>運用戦略</span>成果につながる投稿設計を提案</div>
           <div class="nav-fcard"><span>コンテンツ設計</span>質の高い人だけ増やす</div>
@@ -4991,6 +4991,7 @@ async function submitBooking(){
   }
 
   /* SP専用カードを表示 */
+  .sp-nav-cards{ display:none !important; }
   .sp-feature-cards{
     display:flex !important;
     flex-direction:column !important;
