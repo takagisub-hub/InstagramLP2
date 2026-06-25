@@ -4036,6 +4036,7 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
       <div class="ch-name">KIRINZサポート</div>
       <div class="ch-status">Instagram運用について何でも聞いてください</div>
     </div>
+    <button id="chat-close" onclick="closeChatWindow()" style="background:none;border:none;cursor:pointer;color:#fff;font-size:20px;padding:0 4px;line-height:1;opacity:.8;">✕</button>
   </div>
   <div id="chat-messages">
     <div class="chat-msg bot">こんにちは！KIRINZのInstagram運用支援について、お気軽にご質問ください😊</div>
@@ -4092,16 +4093,21 @@ html.hero-ready .hero{opacity:1 !important;visibility:visible !important;transit
       div.innerHTML = reply.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
       msgs.appendChild(div);
       msgs.scrollTop = msgs.scrollHeight;
-
-      // チャットログをスプシに自動保存
-      var logText = history.map(function(m){ return (m.role === 'user' ? 'お客様：' : 'AI：') + m.content; }).join('\n\n');
-      var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
-      fetch(GAS_URL + '?type=chatlog&log=' + encodeURIComponent(logText), { redirect: 'follow' }).catch(function(){});
     } catch(e) {
       typing.remove();
       addMsg('申し訳ありません。エラーが発生しました。フォームよりお問い合わせください。', 'bot');
     }
   }
+
+  // チャットを閉じるときにログ送信
+  window.closeChatWindow = function() {
+    document.getElementById('chat-window').classList.remove('open');
+    if (history.length > 0) {
+      var logText = history.map(function(m){ return (m.role === 'user' ? 'お客様：' : 'AI：') + m.content; }).join('\n\n');
+      var GAS_URL = 'https://script.google.com/macros/s/AKfycbyp2zwL35prOvZFERDk_RNtaHyazS1bwfeB6OS8IPyQDOftLzX5FKjIgY68t58nnY0/exec';
+      fetch(GAS_URL + '?type=chatlog&log=' + encodeURIComponent(logText), { redirect: 'follow' }).catch(function(){});
+    }
+  };
 
   sendBtn.addEventListener('click', sendMessage);
   input.addEventListener('keydown', function(e){ if(e.key==='Enter') sendMessage(); });
